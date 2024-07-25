@@ -626,6 +626,7 @@ GameObject:
   - component: {fileID: 444209675}
   - component: {fileID: 444209674}
   - component: {fileID: 444209673}
+  - component: {fileID: 444209676}
   m_Layer: 0
   m_Name: Player2
   m_TagString: Untagged
@@ -742,8 +743,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHp: 100
-  curHp: 0
   hpBar: {fileID: 693095580}
+  spriteRenderers: []
+  defaultMaterial: {fileID: 0}
+  whiteMaterial: {fileID: 0}
 --- !u!114 &444209675
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -758,9 +761,25 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   patterns: []
   target: {fileID: 0}
-  moveSpeed: 10
+  moveSpeed: 3
+  dashSpeed: 6
+  dashCool: 5
   angleVec: {x: 0, y: 0}
   playerNumber: 1
+--- !u!114 &444209676
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 444209670}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2b24682ca5c7dab47995a25ed9ee5dc6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ghost: {fileID: 1767854460160568950, guid: 655a76eb481d2a441a859cb9d8644bcc, type: 3}
+  ghostSpawnCool: 0.05
 --- !u!1 &581684005
 GameObject:
   m_ObjectHideFlags: 0
@@ -1306,6 +1325,7 @@ GameObject:
   - component: {fileID: 874872346}
   - component: {fileID: 874872350}
   - component: {fileID: 874872349}
+  - component: {fileID: 874872351}
   - component: {fileID: 874872348}
   m_Layer: 0
   m_Name: Player1
@@ -1423,8 +1443,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHp: 100
-  curHp: 0
   hpBar: {fileID: 1077166809}
+  spriteRenderers: []
+  defaultMaterial: {fileID: 0}
+  whiteMaterial: {fileID: 0}
 --- !u!114 &874872350
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1439,9 +1461,25 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   patterns: []
   target: {fileID: 0}
-  moveSpeed: 10
+  moveSpeed: 3
+  dashSpeed: 6
+  dashCool: 5
   angleVec: {x: 0, y: 0}
   playerNumber: 0
+--- !u!114 &874872351
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 874872345}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2b24682ca5c7dab47995a25ed9ee5dc6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ghost: {fileID: 3102267653719760653, guid: ebbc33832abab3a4c93df5a977a54df3, type: 3}
+  ghostSpawnCool: 0.05
 --- !u!1001 &1059080680
 PrefabInstance:
   m_ObjectHideFlags: 0

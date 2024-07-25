@@ -23,8 +23,6 @@ public class GhostEffect : MonoBehaviour
         {
             curGhostSpawnCool = ghostSpawnCool;
             SpriteRenderer currentGhost = Instantiate(ghost, transform.position, Quaternion.identity);
-            currentGhost.DOFade(0, .5f);
-            Destroy(currentGhost.gameObject, 0.501f);
         }   
       
     }
