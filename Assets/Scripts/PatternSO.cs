@@ -8,6 +8,12 @@ public enum FireType { Immediate, Sequence }
 [CreateAssetMenu(menuName = "ScriptableObject/PatternSO", fileName = "PatternSO")]
 public class PatternSO : ScriptableObject
 {
+    [Header("패널")]
+    public Sprite iconSprite;
+    public new string name;
+    public string description;
+    
+    [Header("시스템")]
     public Projectile projectilePrefab;
 
     [Space]

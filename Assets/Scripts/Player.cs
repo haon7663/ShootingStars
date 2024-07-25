@@ -108,4 +108,9 @@ public class Player : MonoBehaviour
         yield return new WaitForSeconds(0.1f);
         rigid.velocity = Vector2.zero;
     }
+
+    public void AddPattern(PatternSO patternSO)
+    {
+        patterns.Add(patternSO);
+    }
 }
