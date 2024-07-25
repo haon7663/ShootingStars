@@ -16,7 +16,7 @@ MonoBehaviour:
   multiShotCount: 3
   multiShotAngleInterval: 10
   multiShotSequenceInterval: 0.1
-  emissionType: 1
+  emissionType: 0
   projectileCount: 12
   intervalAngle: 10
   fireType: 0
