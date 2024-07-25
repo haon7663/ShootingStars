@@ -12,11 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f350f1853ff69db4d8d94faf708ad444, type: 3}
   m_Name: PatternSO 2
   m_EditorClassIdentifier: 
-  iconSprite: {fileID: 0}
+  iconSprite: {fileID: 21300000, guid: c30bd336d09254a47b7395761d8a8d11, type: 3}
   name: "\uCD1D\uC54C \uB09C\uC0AC"
   description: "4\uCD08\uB9C8\uB2E4 \uBC14\uB77C\uBCF8 \uBC29\uD5A5\uC73C\uB85C \uCD1D\uC744
     \uB09C\uC0AC\uD569\uB2C8\uB2E4"
-  projectilePrefab: {fileID: -4515830441776530188, guid: 9838e3423993862438d9e883eceb2abe, type: 3}
+  projectilePrefab: {fileID: -4515830441776530188, guid: 4f3e677df36534943a228562f1620d54, type: 3}
   multiShotCount: 16
   multiShotAngleInterval: 0
   multiShotSequenceInterval: 0.1
