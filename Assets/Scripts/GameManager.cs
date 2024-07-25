@@ -14,10 +14,24 @@ public class GameManager : SingletonDontDestroyOnLoad<GameManager>
     public List<PatternSO> saveP1Patterns = new List<PatternSO>();
     public List<PatternSO> saveP2Patterns = new List<PatternSO>();
 
-    public void SetGameStats(PlayerGameStat playerStat)
+    public void Initialize()
+    {
+        playerGameStat = PlayerGameStat.Both;
+        playerGameStats = new PlayerGameStat[]
+            { PlayerGameStat.Both, PlayerGameStat.Both, PlayerGameStat.Both, PlayerGameStat.Both, PlayerGameStat.Both };
+        phase = 0;
+        saveP1Patterns = new List<PatternSO>();
+        saveP2Patterns = new List<PatternSO>();
+    }
+
+    public bool SetGameStats(PlayerGameStat playerStat)
     {
         playerGameStat = playerStat;
         playerGameStats[phase++] = playerStat;
+
+        if (phase > 4)
+            return false;
+        return true;
     }
     
     void OnEnable()
@@ -39,11 +53,13 @@ public class GameManager : SingletonDontDestroyOnLoad<GameManager>
     {
         foreach (var p in saveP1Patterns)
         {
-            BattleManager.Inst.p1.AddPattern(p);
+            if(BattleManager.Inst)
+                BattleManager.Inst.p1.AddPattern(p);
         }
         foreach (var p in saveP2Patterns)
         {
-            BattleManager.Inst.p2.AddPattern(p);
+            if(BattleManager.Inst)
+                BattleManager.Inst.p2.AddPattern(p);
         }
     }
 }

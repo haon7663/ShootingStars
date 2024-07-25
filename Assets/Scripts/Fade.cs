@@ -16,12 +16,12 @@ public class Fade : Singleton<Fade>
         FadeOut();
     }
 
-    public void FadeIn()
+    public void FadeIn(string sceneName)
     {
         var sequence = DOTween.Sequence();
         
         sequence.Append(image.DOFade(1, 0.5f));
-        sequence.AppendCallback(() => { SceneManager.LoadScene("Battle"); });
+        sequence.AppendCallback(() => { SceneManager.LoadScene(sceneName); });
     }
     
     public void FadeOut()
