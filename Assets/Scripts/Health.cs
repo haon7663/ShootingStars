@@ -33,8 +33,9 @@ public class Health : MonoBehaviour
 
     public bool OnDamage(float damage, Vector2 angleVec)
     {
+      
         if (isInv || isDashInv || !BattleManager.Inst.isPlaying) return false;
-        
+        SoundManager.Inst.SoundEffect(0);
         _curHp -= damage;
         hpBar.fillAmount = _curHp / maxHp;
 
