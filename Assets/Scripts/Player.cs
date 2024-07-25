@@ -44,10 +44,20 @@ public class Player : MonoBehaviour
         _health = GetComponentInChildren<Health>();
     }
 
+    private bool firstCall = false;
+
     private void Update()
     {
         if (!BattleManager.Inst.isPlaying)
+        {
+            if (firstCall) return;
+            foreach (var pattern in patterns)
+            {
+                pattern.StartCall();
+            }
+            firstCall = true;
             return;
+        }
         
         Move();
 
