@@ -13,14 +13,17 @@ public class Player : MonoBehaviour
 
     [SerializeField] private Transform target;
     
-    [SerializeField] private float moveSpeed,dashSpeed;
+    [SerializeField] private float moveSpeed,dashSpeed,dashCool;
+    float curDashCool;
     [SerializeField] private Vector2 angleVec;
 
     Rigidbody2D rigid;
+    GhostEffect ghostEffect;
 
     private void Start()
     {
         rigid = GetComponent<Rigidbody2D>();
+        ghostEffect = GetComponent<GhostEffect>();
     }
 
     public enum PlayerNumber
@@ -43,10 +46,9 @@ public class Player : MonoBehaviour
             pattern.UpdateCall(transform.position, angleVec, _health);
         }
 
-        if (Input.GetKeyDown(KeyCode.K))
-        {
-            Dash();
-        }
+        Dash();
+
+        if(curDashCool>0) curDashCool -= Time.deltaTime;
     }
 
     private void Move()
@@ -99,7 +101,27 @@ public class Player : MonoBehaviour
 
     void Dash()
     {
+        if(curDashCool <= 0)
+        {
+            switch (playerNumber)
+            {
+                case PlayerNumber.Pl1:
+                    if (Input.GetKeyDown(KeyCode.LeftShift))
+                        DashMove();
+                    break;
+                case PlayerNumber.Pl2:
+                    if (Input.GetKeyDown(KeyCode.RightShift))
+                        DashMove();
+                    break;
+            }
+        }  
+    }
+
+    void DashMove()
+    {
+        ghostEffect.ActiveGhost(0.1f);
         rigid.velocity = new Vector2(angleVec.x, angleVec.y) * dashSpeed;
+        curDashCool = dashCool;
         StartCoroutine(WaitVelocity());
     }
 
