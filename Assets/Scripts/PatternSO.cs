@@ -36,6 +36,11 @@ public class PatternSO : ScriptableObject
     public float coolDownInterval;
     private float _coolDown;
 
+    public void StartCall()
+    {
+        _coolDown = coolDownInterval / 2;
+    }
+
     public void UpdateCall(Transform shooter, Vector2 targetVec, Health owner)
     {
         if (_coolDown < 0)
