@@ -244,7 +244,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &247181366
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1232,12 +1232,12 @@ PrefabInstance:
       objectReference: {fileID: 1928845770}
     - target: {fileID: 6828067220049203476, guid: 67f7d9ff0c45df941b00b6c39cb52f76, type: 3}
       propertyPath: patterns.Array.size
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6828067220049203476, guid: 67f7d9ff0c45df941b00b6c39cb52f76, type: 3}
       propertyPath: patterns.Array.data[0]
       value: 
-      objectReference: {fileID: 11400000, guid: 5a1bbc835a781b64e85f81f403fcba22, type: 2}
+      objectReference: {fileID: 11400000, guid: 32ec4e9b5eb1bdc4c80448e82f48a2ba, type: 2}
     - target: {fileID: 6828067220049203476, guid: 67f7d9ff0c45df941b00b6c39cb52f76, type: 3}
       propertyPath: patterns.Array.data[1]
       value: 
