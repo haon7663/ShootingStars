@@ -1,4 +1,5 @@
 using System.Collections;
+using DG.Tweening;
 using UnityEngine;
 
 public enum EmissionType { Angle, Entire, }
@@ -29,25 +30,46 @@ public class PatternSO : ScriptableObject
     public float coolDownInterval;
     private float _coolDown;
 
-    public IEnumerator Activate(Vector2 startVec, Vector2 targetVec)
+    public void UpdateCall(Vector2 startVec, Vector2 targetVec)
     {
+        if (_coolDown < 0)
+        {
+            Activate(startVec, targetVec);
+            _coolDown = coolDownInterval;
+        }
+        else
+        {
+            _coolDown -= Time.deltaTime;
+        }
+    }
+
+    public void Activate(Vector2 startVec, Vector2 targetVec)
+    {
+        var sequence = DOTween.Sequence();
+        
         var multiShotAngle = 0f;
         for (var i = 0; i < multiShotCount; i++)
         {
-            var emissionAngle = emissionType == EmissionType.Angle ? intervalAngle : 360f / projectileCount;
+            var emissionAngle = emissionType == EmissionType.Angle ? intervalAngle : 360f / (projectileCount + 1);
             for (var j = -projectileCount / 2; j <= projectileCount / 2; j++)
             {
-                var targetAngle = Mathf.Atan2(targetVec.y, targetVec.x) + multiShotAngle * j + emissionAngle;
-                var targetVector = new Vector2(Mathf.Cos(targetAngle), Mathf.Sin(targetAngle));
-                
-                var projectile = Instantiate(projectilePrefab);
-                projectile.Initialize(startVec, targetVector);
+                var angle = multiShotAngle;
+                var saveJ = j;
+                sequence.AppendCallback(() =>
+                {
+                    var targetAngle = Mathf.Atan2(targetVec.y, targetVec.x) + angle + emissionAngle * saveJ;
+                    var targetRad = targetAngle * Mathf.Deg2Rad;
+                    var targetVector = new Vector2(Mathf.Cos(targetRad), Mathf.Sin(targetRad));
+
+                    var projectile = Instantiate(projectilePrefab);
+                    projectile.Initialize(startVec, targetVector);
+                });
 
                 if (fireType == FireType.Sequence)
-                    yield return YieldInstructionCache.WaitForSeconds(sequenceInterval);
+                    sequence.AppendInterval(sequenceInterval);
             }
             multiShotAngle += multiShotAngleInterval;
-            yield return YieldInstructionCache.WaitForSeconds(multiShotSequenceInterval);
+            sequence.AppendInterval(multiShotSequenceInterval);
         }
     }
 }

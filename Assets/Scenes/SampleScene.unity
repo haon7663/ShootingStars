@@ -225,7 +225,6 @@ GameObject:
   m_Component:
   - component: {fileID: 941045084}
   - component: {fileID: 941045083}
-  - component: {fileID: 941045082}
   - component: {fileID: 941045085}
   m_Layer: 0
   m_Name: Circle
@@ -234,18 +233,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &941045082
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 941045081}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ea7e40b26488e3943ab04a665f64c6bd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!212 &941045083
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -322,11 +309,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 941045081}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 797c2f3e5e4ad28479530600f001c5f6, type: 3}
+  m_Script: {fileID: 11500000, guid: f013643589b923a4da1d66d3088a436a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  projectilePrefab: {fileID: 8699189241560921991, guid: 9838e3423993862438d9e883eceb2abe, type: 3}
-  target: {fileID: 1209818208}
+  patternSO: {fileID: 11400000, guid: 32ec4e9b5eb1bdc4c80448e82f48a2ba, type: 2}
 --- !u!1 &1209818206
 GameObject:
   m_ObjectHideFlags: 0
