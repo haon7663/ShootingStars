@@ -365,7 +365,7 @@ Transform:
   m_GameObject: {fileID: 7687203614484428431}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0.015625, y: -0.03125, z: 0}
   m_LocalScale: {x: 2, y: 2, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -405,16 +405,16 @@ BoxCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
-    border: {x: 0.049999997, y: 0.049999997, z: 0.049999997, w: 0.049999997}
+    border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.16, y: 0.16}
+    oldSize: {x: 0.109375, y: 0.09375}
     newSize: {x: 0.16, y: 0.16}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.15, y: 0.15}
+  m_Size: {x: 0.12, y: 0.12}
   m_EdgeRadius: 0
 --- !u!212 &3617198989864624084
 SpriteRenderer:
@@ -456,9 +456,9 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1266524639
   m_SortingLayer: 2
-  m_SortingOrder: 2
-  m_Sprite: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
-  m_Color: {r: 1, g: 0, b: 0, a: 0.14117648}
+  m_SortingOrder: 5
+  m_Sprite: {fileID: 21300000, guid: 57920d16089225b4286016b62c7cfdaa, type: 3}
+  m_Color: {r: 1, g: 0, b: 0, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -480,13 +480,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5e56d611ea2709341840774993a1a51c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHp: 60
+  player: {fileID: 0}
+  maxHp: 30
   hpBar: {fileID: 0}
   spriteRenderers:
   - {fileID: 6646774189738653900}
   - {fileID: 3964306735659184407}
   defaultMaterial: {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
   whiteMaterial: {fileID: 2100000, guid: 148147d822d4463478cd4fa1c1b4d036, type: 2}
+  damageHudPrefab: {fileID: 7312518750810827186, guid: 0edfacbd80256d4479be7cb3076366f9, type: 3}
+  worldCanvas: {fileID: 0}
 --- !u!1 &8507569431894881470
 GameObject:
   m_ObjectHideFlags: 0

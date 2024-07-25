@@ -13,6 +13,7 @@ public abstract class Projectile : MonoBehaviour
 
     private void Start()
     {
+        GetComponent<SpriteRenderer>().color = OwnerHealth.player.playerNumber == PlayerNumber.Pl1 ? new Color(1, 0.5f, 0.5f) : new Color(0.5f, 0.5f, 1f);
         Destroy(gameObject, 3);
     }
 

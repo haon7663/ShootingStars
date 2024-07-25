@@ -11,7 +11,18 @@ public class AbilityManager : Singleton<AbilityManager>
 
     private void Start()
     {
-        ShowPanel(BattleManager.Inst.p1);
+        switch (GameManager.Inst.playerGameStat)
+        {
+            case PlayerGameStat.Both:
+                ShowPanel(BattleManager.Inst.p1);
+                break;
+            case PlayerGameStat.P1:
+                ShowPanel(BattleManager.Inst.p1);
+                break;
+            case PlayerGameStat.P2:
+                ShowPanel(BattleManager.Inst.p2);
+                break;
+        }
     }
 
     public void ShowPanel(Player player)

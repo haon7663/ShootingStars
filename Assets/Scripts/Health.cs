@@ -7,6 +7,7 @@ using UnityEngine.UI;
 public class Health : MonoBehaviour
 {
     private Rigidbody2D _rigidbody2D;
+    [HideInInspector] public Player player;
     
     [SerializeField] private float maxHp;
     [SerializeField] private Image hpBar;
@@ -15,6 +16,10 @@ public class Health : MonoBehaviour
     
     [SerializeField] private Material defaultMaterial;
     [SerializeField] private Material whiteMaterial;
+
+    [SerializeField] private DamageTMP damageHudPrefab;
+
+    [SerializeField] private Transform worldCanvas;
     
     private bool isInv, isDashInv;
     private float _curHp;
@@ -22,6 +27,7 @@ public class Health : MonoBehaviour
     private void Awake()
     {
         _rigidbody2D = GetComponentInParent<Rigidbody2D>();
+        player = GetComponentInParent<Player>();
         _curHp = maxHp;
     }
 
@@ -32,6 +38,9 @@ public class Health : MonoBehaviour
         _curHp -= damage;
         hpBar.fillAmount = _curHp / maxHp;
 
+        var hud = Instantiate(damageHudPrefab, worldCanvas);
+        hud.Setup(transform, (int)damage);
+
         _rigidbody2D.AddForce(angleVec * 6, ForceMode2D.Impulse);
         isInv = true;
         OnInvincibility(0.75f);
@@ -40,6 +49,7 @@ public class Health : MonoBehaviour
         if (_curHp < 0)
         {
             BattleManager.Inst.isPlaying = false;
+            GameManager.Inst.SetGameStats(player.playerNumber == PlayerNumber.Pl1 ? PlayerGameStat.P1 : PlayerGameStat.P2);
             Fade.Inst.FadeIn();
         }
 
