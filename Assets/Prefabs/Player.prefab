@@ -95,6 +95,7 @@ GameObject:
   - component: {fileID: 2171366776944386129}
   - component: {fileID: 6646774189738653900}
   - component: {fileID: 6828067220049203476}
+  - component: {fileID: 8183968259101645101}
   - component: {fileID: 2897255404987033427}
   m_Layer: 0
   m_Name: Player
@@ -187,8 +188,24 @@ MonoBehaviour:
   patterns: []
   target: {fileID: 0}
   moveSpeed: 3
+  dashSpeed: 0
+  dashCool: 0
   angleVec: {x: 0, y: 0}
   playerNumber: 0
+--- !u!114 &8183968259101645101
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4545676487614736109}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2b24682ca5c7dab47995a25ed9ee5dc6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ghost: {fileID: 3102267653719760653, guid: ebbc33832abab3a4c93df5a977a54df3, type: 3}
+  ghostSpawnCool: 0.05
 --- !u!50 &2897255404987033427
 Rigidbody2D:
   serializedVersion: 4

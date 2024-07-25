@@ -6,6 +6,9 @@ public class BattleManager : Singleton<BattleManager>
 {
     public Player SelectedPlayer { get; private set; }
 
+    public Player p1;
+    public Player p2;
+
     public void SelectPlayer(Player player)
     {
         SelectedPlayer = player;

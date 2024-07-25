@@ -11,18 +11,21 @@ public class AbilityPanel : MonoBehaviour
     [SerializeField] private TMP_Text descriptionText;
 
     private PatternSO _patternSO;
+    private Player _player;
 
-    public void Initialize(PatternSO patternSO)
+    public void Initialize(PatternSO patternSO, Player player)
     {
         _patternSO = patternSO;
         
         iconImage.sprite = patternSO.iconSprite;
         nameText.text = patternSO.name;
         descriptionText.text = patternSO.description;
+
+        _player = player;
     }
 
     public void AddAbility()
     {
-        BattleManager.Inst.SelectedPlayer.AddPattern(_patternSO);
+        _player.AddPattern(_patternSO);
     }
 }
