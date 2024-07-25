@@ -10,15 +10,15 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f350f1853ff69db4d8d94faf708ad444, type: 3}
-  m_Name: PatternSO
+  m_Name: PatternSO 1
   m_EditorClassIdentifier: 
   projectilePrefab: {fileID: -4515830441776530188, guid: 9838e3423993862438d9e883eceb2abe, type: 3}
-  multiShotCount: 3
-  multiShotAngleInterval: 10
-  multiShotSequenceInterval: 0.1
-  emissionType: 1
-  projectileCount: 12
-  intervalAngle: 10
+  multiShotCount: 1
+  multiShotAngleInterval: 0
+  multiShotSequenceInterval: 0
+  emissionType: 0
+  projectileCount: 1
+  intervalAngle: 0
   fireType: 0
   sequenceInterval: 0.02
-  coolDownInterval: 3
+  coolDownInterval: 0.6
