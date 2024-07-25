@@ -5,27 +5,33 @@ using UnityEngine.UI;
 
 public class Health : MonoBehaviour
 {
-    [SerializeField] float maxHp, curHp;
-    [SerializeField] Image hpBar;
-    bool isInv;
+    [SerializeField] private float maxHp;
+    [SerializeField] private Image hpBar;
 
-
+    [SerializeField] private Material defaultMaterial;
+    [SerializeField] private Material whiteMaterial;
+    
+    private bool isInv;
+    private float _curHp;
 
     private void Awake()
     {
-        curHp = maxHp;
+        _curHp = maxHp;
     }
 
-    public void OnDamage(float damage)
+    public bool OnDamage(float damage)
     {
-        if (isInv) return;
-        curHp -= damage;
-        hpBar.fillAmount = curHp / maxHp;
+        if (isInv) return false;
+        
+        _curHp -= damage;
+        hpBar.fillAmount = _curHp / maxHp;
 
-        if (curHp < 0)
+        if (_curHp < 0)
         {
             //����
         }
+
+        return true;
     }
 
     public void GetInv(float time)
