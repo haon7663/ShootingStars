@@ -2,7 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Projectile : MonoBehaviour
+public abstract class Projectile : MonoBehaviour
 {
-    [SerializeField] private float moveSpeed;
+    [SerializeField] protected float moveSpeed;
+
+    public abstract void Initialize(Vector2 startVec, Vector2 targetVec);
 }

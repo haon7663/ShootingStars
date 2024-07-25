@@ -3,11 +3,9 @@ using UnityEngine;
 using BezierEngine;
 using UnityEngine.Serialization;
 
-public class BezierProjectile : MonoBehaviour
+public class BezierProjectile : Projectile
 {
     private TrailRenderer _trailRenderer;
-    
-    [SerializeField] private float moveSpeed;
     
     [SerializeField] private float setRadius;
     [SerializeField] private float getRadius;
@@ -20,11 +18,11 @@ public class BezierProjectile : MonoBehaviour
         _trailRenderer = GetComponent<TrailRenderer>();
     }
 
-    public void Initialize(Transform setter, Transform getter)
+    public override void Initialize(Vector2 startVec, Vector2 targetVec)
     {
-        _bezier = new Bezier(setter.position, getter.position, setRadius, getRadius);
+        _bezier = new Bezier(startVec, targetVec, setRadius, getRadius);
 
-        transform.position = setter.position;
+        transform.position = startVec;
         _trailRenderer.emitting = true;
     }
 
