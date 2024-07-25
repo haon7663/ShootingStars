@@ -10,19 +10,19 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f350f1853ff69db4d8d94faf708ad444, type: 3}
-  m_Name: PatternSO 3
+  m_Name: PatternSO 9
   m_EditorClassIdentifier: 
   iconSprite: {fileID: 0}
-  name: "\uAE34\uC2DC\uAC04\uC758 \uC778\uB0B4"
-  description: "\uB9E4\uC6B0 \uB113\uC740 \uBC94\uC704\uB97C \uC624\uB7AB\uB3D9\uC548
-    \uACF5\uACA9\uD569\uB2C8\uB2E4 / \uCFE8\uD0C0\uC784\uC774 \uB9E4\uC6B0 \uAE41\uB2C8\uB2E4"
+  name: "3\uBC1C \uC5F0\uC18D \uC3D8\uAE30"
+  description: "2\uCD08\uB9C8\uB2E4 3\uBC1C\uC744 \uC815\uBA74\uC73C\uB85C 3\uBC1C\uC744
+    \uC5F0\uC18D\uD574\uC11C \uBC1C\uC0AC\uD569\uB2C8\uB2E4"
   projectilePrefab: {fileID: -4515830441776530188, guid: 9838e3423993862438d9e883eceb2abe, type: 3}
-  multiShotCount: 50
-  multiShotAngleInterval: 13
-  multiShotSequenceInterval: 0.05
+  multiShotCount: 3
+  multiShotAngleInterval: 1
+  multiShotSequenceInterval: 0.1
   emissionType: 0
-  projectileCount: 4
-  intervalAngle: 4
+  projectileCount: 1
+  intervalAngle: 1
   fireType: 0
   sequenceInterval: 0.02
-  coolDownInterval: 10
+  coolDownInterval: 2
