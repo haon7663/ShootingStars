@@ -50,8 +50,12 @@ public class Health : MonoBehaviour
         if (_curHp <= 0)
         {
             BattleManager.Inst.isPlaying = false;
-            GameManager.Inst.SetGameStats(player.playerNumber == PlayerNumber.Pl1 ? PlayerGameStat.P1 : PlayerGameStat.P2);
-            Fade.Inst.FadeIn();
+            if(GameManager.Inst.SetGameStats(player.playerNumber == PlayerNumber.Pl1 ? PlayerGameStat.P1 : PlayerGameStat.P2))
+                Fade.Inst.FadeIn("Battle");
+            else
+            {
+                Fade.Inst.FadeIn("WinScene");
+            }
         }
 
         return true;

@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using DG.Tweening;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -11,10 +12,12 @@ public class TitleUI : MonoBehaviour
     [SerializeField] Sprite[] buttonSprite;
     [SerializeField] Sprite[] buttonPushSprite;
     [SerializeField] Image[] buttons;
+
+    private bool isStart;
     // Start is called before the first frame update
     void Start()
     {
-        
+        isStart = false;
     }
 
     private void Update()
@@ -27,6 +30,7 @@ public class TitleUI : MonoBehaviour
         else
         {
             pl1Ready = false;
+            buttons[0].sprite = buttonSprite[0];
         }
 
         if (Input.GetKey(KeyCode.RightShift))
@@ -37,10 +41,16 @@ public class TitleUI : MonoBehaviour
         else
         {
             pl2Ready = false;
+            buttons[1].sprite = buttonSprite[1];
         }
 
         if(pl1Ready && pl2Ready)
         {
+            if (isStart)
+                return;
+            isStart = true;
+            if (GameManager.Inst)
+                GameManager.Inst.Initialize();
             GameStart();
         }
     }
@@ -48,7 +58,6 @@ public class TitleUI : MonoBehaviour
     // Update is called once per frame
     public void GameStart()
     {
-        // 게임 시작
-        SceneManager.LoadScene(0);
+        Fade.Inst.FadeIn("Battle");
     }
 }
