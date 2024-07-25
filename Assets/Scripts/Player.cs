@@ -16,7 +16,7 @@ public class Player : MonoBehaviour
 
     private void FireProjectile()
     {
-        var projectile = Instantiate(projectilePrefab).GetComponent<Projectile>();
+        var projectile = Instantiate(projectilePrefab).GetComponent<BezierProjectile>();
         projectile.Initialize(transform, target);
     }
 }

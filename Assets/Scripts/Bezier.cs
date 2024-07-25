@@ -2,7 +2,20 @@ using UnityEngine;
 
 namespace BezierEngine
 {
-    public static class Bezier
+    public class Bezier
+    {
+        public Vector2 P1, P2, P3, P4;
+
+        public Bezier(Vector2 setterPos, Vector2 getterPos, float setRadius, float getRadius)
+        {
+            P1 = setterPos;
+            P2 = setterPos + Random.insideUnitCircle * setRadius;
+            P3 = getterPos + Random.insideUnitCircle * getRadius;
+            P4 = getterPos;
+        }
+    }
+    
+    public static class BezierMath
     {
         public static Vector3 GetPoint(Vector3 p0, Vector3 p1, Vector3 p2, float t)
         {
@@ -23,6 +36,11 @@ namespace BezierEngine
                    3f * oneMinusT * oneMinusT * t * p1 +
                    3f * oneMinusT * t * t * p2 +
                    t * t * t * p3;
+        }
+        
+        public static Vector3 GetPoint(Bezier bezier, float t)
+        {
+            return GetPoint(bezier.P1, bezier.P2, bezier.P3, bezier.P4, t);
         }
     }
 }
