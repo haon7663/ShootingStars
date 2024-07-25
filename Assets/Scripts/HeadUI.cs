@@ -14,6 +14,8 @@ public class HeadUI : MonoBehaviour
         m_camera = Camera.main;
         pl1HeadUI = Instantiate(pl1HeadUIPrefab, PL1.transform.position,Quaternion.identity,canvas.transform);
         pl2HeadUI = Instantiate(pl2HeadUIPrefab, PL2.transform.position, Quaternion.identity, canvas.transform);
+        pl1HeadUI.GetComponent<RectTransform>().SetAsFirstSibling();
+        pl2HeadUI.GetComponent<RectTransform>().SetAsFirstSibling();
     }
 
     // Update is called once per frame
