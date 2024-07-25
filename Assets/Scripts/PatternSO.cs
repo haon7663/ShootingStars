@@ -1,7 +1,5 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Serialization;
 
 public enum EmissionType { Angle, Entire, }
 public enum FireType { Immediate, Sequence }
@@ -13,7 +11,8 @@ public class PatternSO : ScriptableObject
 
     [Space]
     public int multiShotCount;
-    public float multiShotInterval;
+    public float multiShotAngleInterval;
+    public float multiShotSequenceInterval;
 
     [Space]
     public EmissionType emissionType;
@@ -27,5 +26,28 @@ public class PatternSO : ScriptableObject
     public float sequenceInterval;
     
     [Space]
-    public float duration;
+    public float coolDownInterval;
+    private float _coolDown;
+
+    public IEnumerator Activate(Vector2 startVec, Vector2 targetVec)
+    {
+        var multiShotAngle = 0f;
+        for (var i = 0; i < multiShotCount; i++)
+        {
+            var emissionAngle = emissionType == EmissionType.Angle ? intervalAngle : 360f / projectileCount;
+            for (var j = -projectileCount / 2; j <= projectileCount / 2; j++)
+            {
+                var targetAngle = Mathf.Atan2(targetVec.y, targetVec.x) + multiShotAngle * j + emissionAngle;
+                var targetVector = new Vector2(Mathf.Cos(targetAngle), Mathf.Sin(targetAngle));
+                
+                var projectile = Instantiate(projectilePrefab);
+                projectile.Initialize(startVec, targetVector);
+
+                if (fireType == FireType.Sequence)
+                    yield return YieldInstructionCache.WaitForSeconds(sequenceInterval);
+            }
+            multiShotAngle += multiShotAngleInterval;
+            yield return YieldInstructionCache.WaitForSeconds(multiShotSequenceInterval);
+        }
+    }
 }
