@@ -9,7 +9,7 @@ public class Player : MonoBehaviour
 {
     private Health _health;
     
-    [SerializeField] private List<PatternSO> patterns;
+    public List<PatternSO> patterns;
 
     [SerializeField] private Transform target;
     
