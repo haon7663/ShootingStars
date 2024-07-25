@@ -12,11 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f350f1853ff69db4d8d94faf708ad444, type: 3}
   m_Name: PatternSO 3
   m_EditorClassIdentifier: 
-  iconSprite: {fileID: 0}
+  iconSprite: {fileID: 21300000, guid: bbed586ab58d8c04eb799d94334430ff, type: 3}
   name: "\uAE34\uC2DC\uAC04\uC758 \uC778\uB0B4"
   description: "\uB9E4\uC6B0 \uB113\uC740 \uBC94\uC704\uB97C \uC624\uB7AB\uB3D9\uC548
     \uACF5\uACA9\uD569\uB2C8\uB2E4 / \uCFE8\uD0C0\uC784\uC774 \uB9E4\uC6B0 \uAE41\uB2C8\uB2E4"
-  projectilePrefab: {fileID: -4515830441776530188, guid: 9838e3423993862438d9e883eceb2abe, type: 3}
+  projectilePrefab: {fileID: -4515830441776530188, guid: b65dde6a740afae49869792a70fcb877, type: 3}
   multiShotCount: 50
   multiShotAngleInterval: 13
   multiShotSequenceInterval: 0.05
@@ -25,4 +25,4 @@ MonoBehaviour:
   intervalAngle: 4
   fireType: 0
   sequenceInterval: 0.02
-  coolDownInterval: 10
+  coolDownInterval: 15
