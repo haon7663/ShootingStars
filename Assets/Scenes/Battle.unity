@@ -153,8 +153,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerGameStat: 2
-  saveP1Patterns: []
-  saveP2Patterns: []
+  saveP1Patterns:
+  - {fileID: 11400000, guid: 32ec4e9b5eb1bdc4c80448e82f48a2ba, type: 2}
+  saveP2Patterns:
+  - {fileID: 11400000, guid: 32ec4e9b5eb1bdc4c80448e82f48a2ba, type: 2}
 --- !u!4 &53562900
 Transform:
   m_ObjectHideFlags: 0
@@ -1739,6 +1741,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6828067220049203476, guid: 67f7d9ff0c45df941b00b6c39cb52f76, type: 3}
+      propertyPath: dashSpeed
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 6828067220049203476, guid: 67f7d9ff0c45df941b00b6c39cb52f76, type: 3}
       propertyPath: playerNumber
       value: 1
       objectReference: {fileID: 0}
@@ -2361,7 +2367,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6828067220049203476, guid: 67f7d9ff0c45df941b00b6c39cb52f76, type: 3}
       propertyPath: dashSpeed
-      value: 6
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 6828067220049203476, guid: 67f7d9ff0c45df941b00b6c39cb52f76, type: 3}
       propertyPath: dashUIs.Array.size

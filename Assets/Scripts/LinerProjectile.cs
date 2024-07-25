@@ -12,11 +12,12 @@ public class LinerProjectile : Projectile
         _rigid = GetComponent<Rigidbody2D>();
     }
 
-    public override void Initialize(Vector2 startVec, Vector2 targetVec, Health owner)
+    public override void Initialize(Transform shooter, Vector2 targetVec, Health owner)
     {
         OwnerHealth = owner;
         
-        transform.position = startVec;
+        AngleVec = targetVec;
+        transform.position = shooter.position;
         _rigid.velocity = targetVec * moveSpeed;
     }
 }

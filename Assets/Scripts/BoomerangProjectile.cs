@@ -16,11 +16,12 @@ public class BoomerangProjectile : Projectile
         _rigid = GetComponent<Rigidbody2D>();
     }
     
-    public override void Initialize(Vector2 startVec, Vector2 targetVec, Health owner)
+    public override void Initialize(Transform shooter, Vector2 targetVec, Health owner)
     {
         OwnerHealth = owner;
         
-        transform.position = startVec;
+        transform.position = shooter.position;
+        AngleVec = targetVec;
         _angleVec = targetVec * moveSpeed;
         _saveAngleVec = _angleVec;
     }

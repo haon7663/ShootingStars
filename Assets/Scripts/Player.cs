@@ -27,6 +27,8 @@ public class Player : MonoBehaviour
     Rigidbody2D rigid;
     GhostEffect ghostEffect;
 
+    private float _dashTime;
+
     private void Start()
     {
         rigid = GetComponent<Rigidbody2D>();
@@ -51,10 +53,11 @@ public class Player : MonoBehaviour
 
         foreach (var pattern in patterns)
         {
-            pattern.UpdateCall(transform.position, angleVec, _health);
+            pattern.UpdateCall(transform, angleVec, _health);
         }
 
         Dash();
+        _dashTime -= Time.deltaTime;
 
         if(curDashCount < dashMaxCount)
         {
@@ -68,9 +71,16 @@ public class Player : MonoBehaviour
             }
         }
     }
+    
 
     private void Move()
     {
+        if (_dashTime > 0)
+        {
+            _animator.SetBool("isRun", false);
+            return;
+        }
+        
         float x = 0, y = 0;
         switch (playerNumber)
         {
@@ -146,16 +156,22 @@ public class Player : MonoBehaviour
 
     void DashMove()
     {
-        ghostEffect.ActiveGhost(0.1f);
+        if (_dashTime > 0)
+            return;
+        
+        ghostEffect.ActiveGhost(0.2f);
+        _health.OnDashInv(0.15f);
         rigid.velocity = new Vector2(angleVec.x, angleVec.y) * dashSpeed;
+        transform.localScale = new Vector3(angleVec.x > 0 ? 1 : -1, 1);
         curDashCount--;
+        _dashTime = 0.15f;
         SetDashUI();
         StartCoroutine(WaitVelocity());
     }
 
     IEnumerator WaitVelocity()
     {
-        yield return new WaitForSeconds(0.1f);
+        yield return new WaitForSeconds(0.15f);
         rigid.velocity = Vector2.zero;
     }
 
