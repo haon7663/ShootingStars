@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f350f1853ff69db4d8d94faf708ad444, type: 3}
   m_Name: DefaultAttack
   m_EditorClassIdentifier: 
-  iconSprite: {fileID: 0}
+  iconSprite: {fileID: 21300000, guid: c30bd336d09254a47b7395761d8a8d11, type: 3}
   name: 
   description: 
   projectilePrefab: {fileID: -4515830441776530188, guid: 9838e3423993862438d9e883eceb2abe, type: 3}
