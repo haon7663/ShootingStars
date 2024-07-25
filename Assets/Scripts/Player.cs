@@ -13,8 +13,9 @@ public class Player : MonoBehaviour
 
     [SerializeField] private Transform target;
     
-    [SerializeField] private float moveSpeed,dashSpeed,dashCool;
-    float curDashCool;
+    [SerializeField] private float moveSpeed,dashSpeed,dashChargeCool;
+    [SerializeField] int dashMaxCount,curDashCount;
+    float curDashChargeCool;
     [SerializeField] private Vector2 angleVec;
 
     Rigidbody2D rigid;
@@ -24,6 +25,7 @@ public class Player : MonoBehaviour
     {
         rigid = GetComponent<Rigidbody2D>();
         ghostEffect = GetComponent<GhostEffect>();
+        curDashChargeCool = dashChargeCool;
     }
 
     public enum PlayerNumber
@@ -48,7 +50,19 @@ public class Player : MonoBehaviour
 
         Dash();
 
-        if(curDashCool>0) curDashCool -= Time.deltaTime;
+        if(curDashCount < dashMaxCount)
+        {
+            if(curDashChargeCool>0)
+                curDashChargeCool -= Time.deltaTime;
+            else
+            {
+                curDashChargeCool = dashChargeCool;
+                curDashCount++;
+            }
+
+        }
+
+        
     }
 
     private void Move()
@@ -101,7 +115,7 @@ public class Player : MonoBehaviour
 
     void Dash()
     {
-        if(curDashCool <= 0)
+        if(curDashCount > 0)
         {
             switch (playerNumber)
             {
@@ -121,7 +135,7 @@ public class Player : MonoBehaviour
     {
         ghostEffect.ActiveGhost(0.1f);
         rigid.velocity = new Vector2(angleVec.x, angleVec.y) * dashSpeed;
-        curDashCool = dashCool;
+        curDashCount--;
         StartCoroutine(WaitVelocity());
     }
 
