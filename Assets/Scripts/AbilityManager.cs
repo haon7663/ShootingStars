@@ -33,13 +33,16 @@ public class AbilityManager : Singleton<AbilityManager>
     private void SelectPattern(Player player)
     {
         var patterns = Resources.LoadAll<PatternSO>("Patterns");
+        var selectedPatterns = new List<PatternSO>();
         foreach (var abilityPanel in player.playerNumber == PlayerNumber.Pl1 ? abilityPanelsP1 : abilityPanelsP2)
         {
             PatternSO pattern;
             do
             {
                 pattern = patterns[Random.Range(0, patterns.Length)];
-            } while (player.patterns.Contains(pattern));
+            } while (player.patterns.Contains(pattern) || selectedPatterns.Contains(pattern));
+
+            selectedPatterns.Add(pattern);
             
             abilityPanel.gameObject.SetActive(true);
             abilityPanel.Initialize(pattern, player);

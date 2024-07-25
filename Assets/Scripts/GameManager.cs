@@ -53,12 +53,12 @@ public class GameManager : SingletonDontDestroyOnLoad<GameManager>
     {
         foreach (var p in saveP1Patterns)
         {
-            if(BattleManager.Inst)
+            if(BattleManager.Inst.p1)
                 BattleManager.Inst.p1.AddPattern(p);
         }
         foreach (var p in saveP2Patterns)
         {
-            if(BattleManager.Inst)
+            if(BattleManager.Inst.p2)
                 BattleManager.Inst.p2.AddPattern(p);
         }
     }
