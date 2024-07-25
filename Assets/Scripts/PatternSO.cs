@@ -57,7 +57,7 @@ public class PatternSO : ScriptableObject
                 var saveJ = j;
                 sequence.AppendCallback(() =>
                 {
-                    var targetAngle = Mathf.Atan2(targetVec.y, targetVec.x) + angle + emissionAngle * saveJ;
+                    var targetAngle = Mathf.Atan2(targetVec.y, targetVec.x) * Mathf.Rad2Deg + angle + emissionAngle * saveJ;
                     var targetRad = targetAngle * Mathf.Deg2Rad;
                     var targetVector = new Vector2(Mathf.Cos(targetRad), Mathf.Sin(targetRad));
 

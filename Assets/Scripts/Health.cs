@@ -16,7 +16,7 @@ public class Health : MonoBehaviour
         curHp = maxHp;
     }
 
-    public void GetDamage(float damage)
+    public void OnDamage(float damage)
     {
         if (isInv) return;
         curHp -= damage;
@@ -24,7 +24,7 @@ public class Health : MonoBehaviour
 
         if (curHp < 0)
         {
-            //Á×À½
+            //ï¿½ï¿½ï¿½ï¿½
         }
     }
 
