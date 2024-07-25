@@ -23,6 +23,7 @@ public class GhostEffect : MonoBehaviour
         {
             curGhostSpawnCool = ghostSpawnCool;
             SpriteRenderer currentGhost = Instantiate(ghost, transform.position, Quaternion.identity);
+            currentGhost.transform.localScale = transform.localScale;
         }   
       
     }

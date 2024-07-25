@@ -24,7 +24,7 @@ public class Health : MonoBehaviour
 
     public bool OnDamage(float damage)
     {
-        if (isInv) return false;
+        if (isInv || !BattleManager.Inst.isPlaying) return false;
         
         _curHp -= damage;
         hpBar.fillAmount = _curHp / maxHp;
@@ -34,7 +34,8 @@ public class Health : MonoBehaviour
 
         if (_curHp < 0)
         {
-            //����
+            BattleManager.Inst.isPlaying = false;
+            Fade.Inst.FadeIn();
         }
 
         return true;

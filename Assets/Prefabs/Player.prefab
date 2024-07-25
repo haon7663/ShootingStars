@@ -190,11 +190,12 @@ MonoBehaviour:
   patterns: []
   target: {fileID: 0}
   moveSpeed: 3
-  dashSpeed: 0
-  dashChargeCool: 0
-  dashMaxCount: 0
-  curDashCount: 0
+  dashSpeed: 6
+  dashChargeCool: 3
+  dashMaxCount: 3
+  curDashCount: 3
   angleVec: {x: 0, y: 0}
+  dashUIs: []
   playerNumber: 0
 --- !u!114 &8183968259101645101
 MonoBehaviour:

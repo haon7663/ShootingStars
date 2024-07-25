@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 public enum PlayerNumber
 {
@@ -21,6 +22,7 @@ public class Player : MonoBehaviour
     [SerializeField] int dashMaxCount,curDashCount;
     float curDashChargeCool;
     [SerializeField] private Vector2 angleVec;
+    [FormerlySerializedAs("dashUI")] [SerializeField] private GameObject[] dashUIs;
 
     Rigidbody2D rigid;
     GhostEffect ghostEffect;
@@ -62,6 +64,7 @@ public class Player : MonoBehaviour
             {
                 curDashChargeCool = dashChargeCool;
                 curDashCount++;
+                SetDashUI();
             }
         }
     }
@@ -146,6 +149,7 @@ public class Player : MonoBehaviour
         ghostEffect.ActiveGhost(0.1f);
         rigid.velocity = new Vector2(angleVec.x, angleVec.y) * dashSpeed;
         curDashCount--;
+        SetDashUI();
         StartCoroutine(WaitVelocity());
     }
 
@@ -158,5 +162,13 @@ public class Player : MonoBehaviour
     public void AddPattern(PatternSO patternSO)
     {
         patterns.Add(patternSO);
+    }
+
+    private void SetDashUI()
+    {
+        for (int i = 0; i < 3; i++)
+        {
+            dashUIs[i].SetActive(curDashCount > i); 
+        }
     }
 }

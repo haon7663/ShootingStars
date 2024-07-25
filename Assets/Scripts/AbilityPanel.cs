@@ -30,10 +30,12 @@ public class AbilityPanel : MonoBehaviour
         switch (_player.playerNumber)
         {
             case PlayerNumber.Pl1:
+                GameManager.Inst.saveP1Patterns.Add(_patternSO);
                 AbilityManager.Inst.CloseP1Panel();
                 AbilityManager.Inst.ShowPanel(BattleManager.Inst.p2);
                 break;
             case PlayerNumber.Pl2:
+                GameManager.Inst.saveP2Patterns.Add(_patternSO);
                 AbilityManager.Inst.CloseP2Panel();
                 BattleManager.Inst.isPlaying = true;
                 break;

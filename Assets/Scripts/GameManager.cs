@@ -1,19 +1,20 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GameManager : MonoBehaviour
+public enum PlayerGameStat { P1, P2, Both }
+public class GameManager : SingletonDontDestroyOnLoad<GameManager>
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    public PlayerGameStat playerGameStat = PlayerGameStat.Both;
 
-    // Update is called once per frame
-    void Update()
+    public List<PatternSO> saveP1Patterns = new List<PatternSO>();
+    public List<PatternSO> saveP2Patterns = new List<PatternSO>();
+
+    private void Start()
     {
-        
+        BattleManager.Inst.p1.patterns = saveP1Patterns;
+        BattleManager.Inst.p2.patterns = saveP2Patterns;
     }
 }
 
