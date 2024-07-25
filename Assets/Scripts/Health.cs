@@ -46,7 +46,7 @@ public class Health : MonoBehaviour
         OnInvincibility(0.75f);
         OnWhite(0.1f);
 
-        if (_curHp < 0)
+        if (_curHp <= 0)
         {
             BattleManager.Inst.isPlaying = false;
             GameManager.Inst.SetGameStats(player.playerNumber == PlayerNumber.Pl1 ? PlayerGameStat.P1 : PlayerGameStat.P2);
