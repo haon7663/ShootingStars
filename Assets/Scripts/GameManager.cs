@@ -8,10 +8,17 @@ public enum PlayerGameStat { P1, P2, Both }
 public class GameManager : SingletonDontDestroyOnLoad<GameManager>
 {
     public PlayerGameStat playerGameStat = PlayerGameStat.Both;
+    public PlayerGameStat[] playerGameStats;
+    public int phase;
 
     public List<PatternSO> saveP1Patterns = new List<PatternSO>();
     public List<PatternSO> saveP2Patterns = new List<PatternSO>();
 
+    public void SetGameStats(PlayerGameStat playerStat)
+    {
+        playerGameStat = playerStat;
+        playerGameStats[phase++] = playerStat;
+    }
     
     void OnEnable()
     {
