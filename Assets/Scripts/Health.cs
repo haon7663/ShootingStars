@@ -41,7 +41,7 @@ public class Health : MonoBehaviour
         return true;
     }
     
-    private void OnInvincibility(float time)
+    public void OnInvincibility(float time)
     {
         var sequence = DOTween.Sequence();
 

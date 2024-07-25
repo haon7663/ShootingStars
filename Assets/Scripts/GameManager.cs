@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public enum PlayerGameStat { P1, P2, Both }
 public class GameManager : SingletonDontDestroyOnLoad<GameManager>
@@ -11,10 +12,32 @@ public class GameManager : SingletonDontDestroyOnLoad<GameManager>
     public List<PatternSO> saveP1Patterns = new List<PatternSO>();
     public List<PatternSO> saveP2Patterns = new List<PatternSO>();
 
-    private void Start()
+    
+    void OnEnable()
     {
-        BattleManager.Inst.p1.patterns = saveP1Patterns;
-        BattleManager.Inst.p2.patterns = saveP2Patterns;
+        // 델리게이트 체인 추가
+        SceneManager.sceneLoaded += OnSceneLoaded;
+    }
+
+    private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+    {
+        OnScene();
+    }
+
+    void OnDisable()
+    {
+        SceneManager.sceneLoaded -= OnSceneLoaded;
+    }
+    private void OnScene()
+    {
+        foreach (var p in saveP1Patterns)
+        {
+            BattleManager.Inst.p1.AddPattern(p);
+        }
+        foreach (var p in saveP2Patterns)
+        {
+            BattleManager.Inst.p2.AddPattern(p);
+        }
     }
 }
 
