@@ -27,5 +27,16 @@ public class AbilityPanel : MonoBehaviour
     public void AddAbility()
     {
         _player.AddPattern(_patternSO);
+        switch (_player.playerNumber)
+        {
+            case PlayerNumber.Pl1:
+                AbilityManager.Inst.CloseP1Panel();
+                AbilityManager.Inst.ShowPanel(BattleManager.Inst.p2);
+                break;
+            case PlayerNumber.Pl2:
+                AbilityManager.Inst.CloseP2Panel();
+                BattleManager.Inst.isPlaying = true;
+                break;
+        }
     }
 }

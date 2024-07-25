@@ -14,7 +14,7 @@ public class AbilityManager : Singleton<AbilityManager>
         ShowPanel(BattleManager.Inst.p1);
     }
 
-    private void ShowPanel(Player player)
+    public void ShowPanel(Player player)
     {
         SelectPattern(player);
     }
@@ -22,7 +22,7 @@ public class AbilityManager : Singleton<AbilityManager>
     private void SelectPattern(Player player)
     {
         var patterns = Resources.LoadAll<PatternSO>("Patterns");
-        foreach (var abilityPanel in abilityPanelsP1)
+        foreach (var abilityPanel in player.playerNumber == PlayerNumber.Pl1 ? abilityPanelsP1 : abilityPanelsP2)
         {
             PatternSO pattern;
             do
@@ -37,6 +37,7 @@ public class AbilityManager : Singleton<AbilityManager>
 
     public void CloseP1Panel()
     {
+        Debug.Log("CP1");
         foreach (var abilityPanel in abilityPanelsP1)
         {
             abilityPanel.gameObject.SetActive(false);
@@ -44,6 +45,7 @@ public class AbilityManager : Singleton<AbilityManager>
     }
     public void CloseP2Panel()
     {
+        Debug.Log("CP2");
         foreach (var abilityPanel in abilityPanelsP2)
         {
             abilityPanel.gameObject.SetActive(false);

@@ -2,8 +2,11 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Serialization;
 
+public enum PlayerNumber
+{
+    Pl1,Pl2
+}
 
 public class Player : MonoBehaviour
 {
@@ -27,12 +30,8 @@ public class Player : MonoBehaviour
         ghostEffect = GetComponent<GhostEffect>();
         curDashChargeCool = dashChargeCool;
     }
-
-    public enum PlayerNumber
-    {
-        Pl1,Pl2
-    }
-    [SerializeField] private PlayerNumber playerNumber;
+    
+    public PlayerNumber playerNumber;
 
     private void Awake()
     {
@@ -41,6 +40,9 @@ public class Player : MonoBehaviour
 
     private void Update()
     {
+        if (!BattleManager.Inst.isPlaying)
+            return;
+        
         Move();
 
         foreach (var pattern in patterns)
@@ -61,8 +63,6 @@ public class Player : MonoBehaviour
             }
 
         }
-
-        
     }
 
     private void Move()

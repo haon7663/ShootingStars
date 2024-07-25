@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class BattleManager : Singleton<BattleManager>
 {
+    public bool isPlaying = false;
+    
     public Player SelectedPlayer { get; private set; }
 
     public Player p1;
