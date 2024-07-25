@@ -266,9 +266,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   patterns: []
-  target: {fileID: 0}
+  gun: {fileID: 6410895008733579762}
   moveSpeed: 3
-  dashSpeed: 15
+  dashSpeed: 18
   dashChargeCool: 3
   dashMaxCount: 3
   curDashCount: 3

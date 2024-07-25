@@ -15,8 +15,8 @@ public class Player : MonoBehaviour
     private Health _health;
     
     public List<PatternSO> patterns;
-
-    [SerializeField] private Transform target;
+    
+    [SerializeField] private Transform gun;
     
     [SerializeField] private float moveSpeed,dashSpeed,dashChargeCool;
     [SerializeField] int dashMaxCount,curDashCount;
@@ -122,8 +122,13 @@ public class Player : MonoBehaviour
         {
             angleVec = new Vector3(x, y, 0).normalized;
             _animator.SetBool("isRun", true);
-            if(x != 0)
+            
+            float angle = Mathf.Atan2(angleVec.y, angleVec.x) * Mathf.Rad2Deg;
+            if (x != 0)
+            {
                 transform.localScale = new Vector3(x, 1);
+                gun.rotation = Quaternion.Euler(0, 0, x < 0 ? angle + 180 : angle);
+            }
         }
         else
         {
