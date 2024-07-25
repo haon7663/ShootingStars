@@ -2001,9 +2001,13 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3902402309222082886, guid: 67f7d9ff0c45df941b00b6c39cb52f76, type: 3}
+      propertyPath: m_FlipX
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3964306735659184407, guid: 67f7d9ff0c45df941b00b6c39cb52f76, type: 3}
       propertyPath: m_FlipX
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3964306735659184407, guid: 67f7d9ff0c45df941b00b6c39cb52f76, type: 3}
       propertyPath: m_Color.b
@@ -2027,7 +2031,7 @@ PrefabInstance:
       objectReference: {fileID: 1813257245}
     - target: {fileID: 6646774189738653900, guid: 67f7d9ff0c45df941b00b6c39cb52f76, type: 3}
       propertyPath: m_FlipX
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6828067220049203476, guid: 67f7d9ff0c45df941b00b6c39cb52f76, type: 3}
       propertyPath: playerNumber

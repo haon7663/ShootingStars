@@ -10,6 +10,7 @@ public enum PlayerNumber
 
 public class Player : MonoBehaviour
 {
+    private Animator _animator;
     private Health _health;
     
     public List<PatternSO> patterns;
@@ -28,6 +29,7 @@ public class Player : MonoBehaviour
     {
         rigid = GetComponent<Rigidbody2D>();
         ghostEffect = GetComponent<GhostEffect>();
+        _animator = GetComponent<Animator>();
         curDashChargeCool = dashChargeCool;
     }
     
@@ -61,7 +63,6 @@ public class Player : MonoBehaviour
                 curDashChargeCool = dashChargeCool;
                 curDashCount++;
             }
-
         }
     }
 
@@ -105,7 +106,16 @@ public class Player : MonoBehaviour
         }
 
         if (x != 0 || y != 0)
+        {
             angleVec = new Vector3(x, y, 0).normalized;
+            _animator.SetBool("isRun", true);
+            if(x != 0)
+                transform.localScale = new Vector3(x, 1);
+        }
+        else
+        {
+            _animator.SetBool("isRun", false);
+        }
         Vector3 moveDirection = new Vector3(x, y, 0).normalized;
 
         float moveX = moveDirection.x * moveSpeed * Time.deltaTime;
