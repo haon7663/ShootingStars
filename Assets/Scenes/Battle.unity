@@ -1635,6 +1635,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bb511d2c222425b458cb656e2522b44d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isPlaying: 0
   p1: {fileID: 666893478}
   p2: {fileID: 1713657395}
 --- !u!1 &1344445939
@@ -2001,6 +2002,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3964306735659184407, guid: 67f7d9ff0c45df941b00b6c39cb52f76, type: 3}
+      propertyPath: m_FlipX
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3964306735659184407, guid: 67f7d9ff0c45df941b00b6c39cb52f76, type: 3}
       propertyPath: m_Color.b
       value: 0.9882353
       objectReference: {fileID: 0}
@@ -2203,11 +2208,11 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
-  m_Type: 0
+  m_Sprite: {fileID: 10911, guid: 0000000000000000f000000000000000, type: 0}
+  m_Type: 3
   m_PreserveAspect: 0
   m_FillCenter: 1
-  m_FillMethod: 4
+  m_FillMethod: 0
   m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
@@ -2465,11 +2470,11 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
-  m_Type: 0
+  m_Sprite: {fileID: 10911, guid: 0000000000000000f000000000000000, type: 0}
+  m_Type: 3
   m_PreserveAspect: 0
   m_FillCenter: 1
-  m_FillMethod: 4
+  m_FillMethod: 0
   m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
