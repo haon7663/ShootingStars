@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using DG.Tweening;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -8,6 +9,8 @@ public class Health : MonoBehaviour
     [SerializeField] private float maxHp;
     [SerializeField] private Image hpBar;
 
+    [SerializeField] private SpriteRenderer[] spriteRenderers;
+    
     [SerializeField] private Material defaultMaterial;
     [SerializeField] private Material whiteMaterial;
     
@@ -26,6 +29,9 @@ public class Health : MonoBehaviour
         _curHp -= damage;
         hpBar.fillAmount = _curHp / maxHp;
 
+        OnInvincibility(0.25f);
+        OnWhite(0.1f);
+
         if (_curHp < 0)
         {
             //����
@@ -33,19 +39,41 @@ public class Health : MonoBehaviour
 
         return true;
     }
-
-    public void GetInv(float time)
+    
+    private void OnInvincibility(float time)
     {
-        StartCoroutine(Inv(time));
+        var sequence = DOTween.Sequence();
+
+        sequence.AppendCallback(() =>
+        {
+            isInv = true;
+        });
+        sequence.AppendInterval(time);
+        sequence.AppendCallback(() =>
+        {
+            isInv = false;
+        });
     }
 
-    IEnumerator Inv(float time)
+    private void OnWhite(float time)
     {
-        isInv = true;
-        yield return new WaitForSeconds(time);
-        isInv = false;
+        var sequence = DOTween.Sequence();
+
+        sequence.AppendCallback(() =>
+        {
+            foreach (var spriteRenderer in spriteRenderers)
+            {
+                spriteRenderer.material = whiteMaterial;
+            }
+        });
+        sequence.AppendInterval(time);
+        sequence.AppendCallback(() =>
+        {
+            foreach (var spriteRenderer in spriteRenderers)
+            {
+                spriteRenderer.material = defaultMaterial;
+            }
+        });
     }
-
-
 }
 

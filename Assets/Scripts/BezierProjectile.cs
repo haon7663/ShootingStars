@@ -18,8 +18,10 @@ public class BezierProjectile : Projectile
         _trailRenderer = GetComponent<TrailRenderer>();
     }
 
-    public override void Initialize(Vector2 startVec, Vector2 targetVec)
+    public override void Initialize(Vector2 startVec, Vector2 targetVec, Health owner)
     {
+        OwnerHealth = owner;
+        
         _bezier = new Bezier(startVec, targetVec, setRadius, getRadius);
 
         transform.position = startVec;

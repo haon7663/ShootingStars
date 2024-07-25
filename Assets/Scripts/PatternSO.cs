@@ -30,11 +30,11 @@ public class PatternSO : ScriptableObject
     public float coolDownInterval;
     private float _coolDown;
 
-    public void UpdateCall(Vector2 startVec, Vector2 targetVec)
+    public void UpdateCall(Vector2 startVec, Vector2 targetVec, Health owner)
     {
         if (_coolDown < 0)
         {
-            Activate(startVec, targetVec);
+            Activate(startVec, targetVec, owner);
             _coolDown = coolDownInterval;
         }
         else
@@ -43,7 +43,7 @@ public class PatternSO : ScriptableObject
         }
     }
 
-    public void Activate(Vector2 startVec, Vector2 targetVec)
+    public void Activate(Vector2 startVec, Vector2 targetVec, Health owner)
     {
         var sequence = DOTween.Sequence();
         
@@ -62,7 +62,7 @@ public class PatternSO : ScriptableObject
                     var targetVector = new Vector2(Mathf.Cos(targetRad), Mathf.Sin(targetRad));
 
                     var projectile = Instantiate(projectilePrefab);
-                    projectile.Initialize(startVec, targetVector);
+                    projectile.Initialize(startVec, targetVector, owner);
                 });
 
                 if (fireType == FireType.Sequence)

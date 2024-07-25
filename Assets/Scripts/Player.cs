@@ -7,6 +7,8 @@ using UnityEngine.Serialization;
 
 public class Player : MonoBehaviour
 {
+    private Health _health;
+    
     [SerializeField] private List<PatternSO> patterns;
 
     [SerializeField] private Transform target;
@@ -20,13 +22,18 @@ public class Player : MonoBehaviour
     }
     [SerializeField] private PlayerNumber playerNumber;
 
+    private void Awake()
+    {
+        _health = GetComponentInChildren<Health>();
+    }
+
     private void Update()
     {
         Move();
 
         foreach (var pattern in patterns)
         {
-            pattern.UpdateCall(transform.position, angleVec);
+            pattern.UpdateCall(transform.position, angleVec, _health);
         }
     }
 

@@ -8,13 +8,19 @@ public abstract class Projectile : MonoBehaviour
     [SerializeField] protected float moveSpeed;
     [SerializeField] protected float damage;
 
-    public abstract void Initialize(Vector2 startVec, Vector2 targetVec);
+    protected Health OwnerHealth;
+
+    public abstract void Initialize(Vector2 startVec, Vector2 targetVec, Health owner);
 
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.TryGetComponent<Health>(out var health))
         {
-            health.OnDamage(damage);
+            if (OwnerHealth == health)
+                return;
+            
+            if(health.OnDamage(damage))
+                Destroy(gameObject);
         }
     }
 }
