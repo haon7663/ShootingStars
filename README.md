@@ -1,5 +1,6 @@
 # Shooting Stars
 P2P 로그라이크 탄막 슈팅 게임
+Rounds를
 
 # 조작법
 1P / ADSW
