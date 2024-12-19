@@ -1,6 +1,8 @@
 # Shooting Stars
 P2P 로그라이크 탄막 슈팅 게임
 
+[![Video Label](http://img.youtube.com/vi/SuIQ3aCzGic/0.jpg)](https://youtu.be/SuIQ3aCzGic)
+
 # 조작법
 1P / ADSW
 
