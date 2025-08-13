@@ -8,7 +8,4 @@ https://github.com/user-attachments/assets/04deccc1-5216-4fc5-9463-7fb8d8bda1c3
 
 2P / 방향 키
 
-
-
 Rounds라는 게임의 로그라이크 시스템(패배 시 증강 획득을 통해 강해진다) 참고
-2024 교내 게임잼 1위
